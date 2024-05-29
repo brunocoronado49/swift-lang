@@ -78,14 +78,14 @@ class Perro: Animal {
     init(nombre: String, raza: String) {
         self.raza = raza
         super.init(nombre: nombre)
+    }
 
-        // la palabra clave "override" indica que
-        // estamos sobreescribiendo este metodo
-        // lo que significa que vamos a redefinir la
-        // funcionalidad que le habiamos dado a la clase padre
-        override func describir() -> String {
-            return "\(super.describir()); Raza: \(raza)"
-        }
+    // la palabra clave "override" indica que
+    // estamos sobreescribiendo este metodo
+    // lo que significa que vamos a redefinir la
+    // funcionalidad que le habiamos dado a la clase padre
+    override func describir() -> String {
+        return "\(super.describir()); Raza: \(raza)"
     }
 }
 
@@ -95,10 +95,10 @@ class Empleado: Persona {
     init(nombre: String, apellido: String, salario: Double) {
         self.salario = salario
         super.init(nombre: nombre, apellido: apellido)
+    }
 
-        override func obtenerNombreCompletp() -> String {
-            return "\(super.obtenerNombreCompletp()); Salario: \(salario)"
-        }
+    override func obtenerNombreCompletp() -> String {
+        return "\(super.obtenerNombreCompletp()); Salario: \(salario)"
     }
 }
 
@@ -112,4 +112,59 @@ func presentar(a persona: Persona) {
 let marcelo = Persona(nombre: "Marcelo", apellido: "Perez")
 presentar(a: marcelo)
 
-// TODO: encapsulamiento y protocolos
+let francisco = Empleado(nombre: "Francisco", apellido: "Rangel", salario: 100.20)
+presentar(a: bruce)
+
+
+// Encapsulamiento
+
+class PersonaEncapsulamiento {
+    private let nombre: String
+    let apellido: String
+
+    init(nombre: String, apellido: String) {
+        self.nombre = nombre
+        self.apellido = apellido
+    }
+}
+
+let jose = PersonaEncapsulamiento(nombre: "Juan", apellido: "Perez")
+print(jose.apellido)
+// print(jose.nombre) <- error
+
+
+// Protocolos
+
+// un protocolo hablador define la lista
+// de funciones que tiene que implementar una clase  para
+// ser un hablador, en el caso de este ejemplo. simmplemente
+// iuna funcion que se llame hablar
+protocol Hablador {
+    func hablar() -> String
+}
+
+// Declarar que una clase implementa de un protocolo
+// es igual que declarar herencia
+class PersonaProtocolo: Hablador {
+
+    // debemos cumplir con lo que especifica el protocolo
+    func hablar() -> String {
+        return "Hello There!"
+    }
+}
+
+class PerroProtocolo: Hablador {
+    func hablar() -> String {
+        return "Guau!"
+    }
+}
+
+func imprimirSonido(de hablador: Hablador) {
+    print(hablador.hablar())
+}
+
+let pipol = PersonaProtocolo()
+let dog = PerroProtocolo()
+
+imprimirSonido(de: pipol)
+imprimirSonido(de: dog)
