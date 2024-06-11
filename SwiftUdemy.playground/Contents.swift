@@ -81,3 +81,184 @@ var sixLetter = alphabet.randomElement()
 let password: String = firstLetter! + seconfLetter! + (thirdLetter!) + fourLetter! + (fiveLetter!) + sixLetter!
     
 print(password)
+
+// Funciones
+
+func greeting() {
+    print("Hello World!")
+}
+
+for _ in 1...4 {
+    greeting()
+}
+
+func greeting2(whoToGreet: String) {
+    print("Hello \(whoToGreet)")
+}
+
+greeting2(whoToGreet: "Bruce")
+
+//Don't change this code:
+func calculator() {
+  let a = 3//Int(readLine()!)! //First input
+  let b = 4//Int(readLine()!)! //Second input
+  
+  add(n1: a, n2: b)
+  subtract(n1: a, n2: b)
+  multiply(n1: a, n2: b)
+  divide(n1: a, n2: b)
+  
+}
+
+//Write your code below this line to make the above function calls work.
+func add(n1: Int, n2: Int) {
+    print(n1 + n2)
+}
+
+func subtract(n1: Int, n2: Int) {
+    print(n1 - n2)
+}
+
+func multiply(n1: Int, n2: Int) {
+    print(n1 * n2)
+}
+
+func divide(n1: Int, n2: Int) {
+    print(Double(n1) / Double(n2))
+}
+
+calculator()
+
+// If-Else
+
+func loveCalculator() {
+    let loveScore: Int = Int.random(in: 0...100)
+
+    if loveScore > 80 {
+        print("You love each other like Kanye loves Kanye")
+    } else if loveScore > 40 {
+        print("You got together like Coke and menta")
+    } else {
+        print("You'll be forever alone")
+    }
+}
+
+loveCalculator()
+
+//Don't change this
+var aYear =  Int(readLine()!)! 
+
+func isLeap(year: Int) {
+  
+  //Write your code inside this function.
+    if (year % 4) == 0 {
+    if (year % 100) == 0 {
+        if (year % 400) == 0 {
+            print("YES")
+        } else {
+            print("NO")
+        }
+    } else {
+        print("YES")
+    }
+  } else {
+    print("NO")
+  }  
+}
+
+func loveCalculatorSwitch() {
+    let loveScore: Int = Int.random(in: 0...100)
+
+    switch loveScore {
+    case 81...1:
+        print("You love each other like Kanye loves Kanye")
+    case 41..<81:
+        print("You got together like Coke and menta")
+    case ...40:
+        print("You'll be forever alone")
+    default:
+        print("Error, loveScore is out of range")
+        break
+    }
+}
+
+
+////Don't change this
+var aNumber =  Int(readLine()!)! 
+
+func dayOfTheWeek(day: Int) {
+  
+  //Write your code inside this function.
+  switch day {
+    case 1:
+        print("Monday")
+    case 2:
+        print("Tuesday")
+    case 3:
+        print("Wednesday")
+    case 4:
+        print("Thursday")
+    case 5:
+        print("Friday")
+    case 6:
+        print("Saturday")
+    case 7:
+        print("Sunday")
+    default:
+        print("Error")
+  }
+  
+  
+}
+
+// Dictionaries
+func exercise() {
+
+    //Don't change this
+    var stockTickers: [String: String] = [
+        "APPL" : "Apple Inc", 
+    	"HOG": "Harley-Davidson Inc", 
+    	"BOOM": "Dynamic Materials", 
+    	"HEINY": "Heineken", 
+    	"BEN": "Franklin Resources Inc"
+    ]
+    
+    //Write your code here.
+    stockTickers["WORK"] = "Slack Technologies Inc"
+    stockTickers["BOOM"] = "DMC Global Inc"
+
+  
+     //Don't modify this
+    print(stockTickers["WORK"]!)
+    print(stockTickers["BOOM"]!)
+}
+
+// Optionals
+var player1Username: String? = nil
+player1Username = "3lm4taVi3jit45"
+print(player1Username!)
+print(player1Username ?? "No username")
+
+//Don't change this
+var studentsAndScores = ["Amy": Int(readLine()!)!, "James": Int(readLine()!)!, "Helen": Int(readLine()!)!]
+
+func highestScore(scores: [String: Int]) {
+  
+  //Write your code here.
+  var aux: Int
+  
+  if studentsAndScores["Amy"]! > studentsAndScores["James"]! {    
+      aux = studentsAndScores["Amy"]!
+      if studentsAndScores["Helen"]! > aux {
+          print(studentsAndScores["Helen"]!)
+      } else {
+          print(aux)
+      }
+  } else if studentsAndScores["James"]! > studentsAndScores["Helen"]! {
+      print(studentsAndScores["James"]!)
+  } else {
+      print(studentsAndScores["Helen"]!)
+  }
+  
+  
+}
