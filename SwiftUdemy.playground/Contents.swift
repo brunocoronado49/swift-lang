@@ -262,3 +262,82 @@ func highestScore(scores: [String: Int]) {
   
   
 }
+
+// Structs
+
+struct Town {
+    let name: String
+    var citizens: [String]
+    var resources: [String : Int]
+
+    init(name: String, citizens: [String], resources: [String : Int]) {
+        self.name = name
+        self.citizens = citizens
+        self.resources = resources
+    }
+
+    func fortify() {
+        print("Defenses increase")
+    }
+}
+
+var myNewTown = Town(name: "Japon", citizens: ["Bruce", "Margot"], resources: ["Sushi": 100])
+print(myNewTown.name)
+
+func exercise() {
+
+    // Define the User struct here
+    struct User {
+        var name: String
+        var email: String?
+        var followers: Int
+        var isActive: Bool
+        
+        init(name: String, email: String?, followers: Int, isActive: Bool) {
+            self.name = name
+            self.email = email
+            self.followers = followers
+            self.isActive = isActive
+        }
+        
+        func logStatus() {
+            if isActive == true {
+                print("\(name) is working hard")
+            } else {
+                print( "\(name) has left earth")
+            }
+        }
+    }
+
+    // Initialise a User struct here
+    let richard = User(name: "Richard", email: nil, followers: 200, isActive: false)
+    richard.logStatus()
+
+
+    // Diagnostic code - do not change this code
+    print("\nDiagnostic code (i.e., Challenge Hint):")
+    var musk = User(name: "Elon", email: "elon@tesla.com", followers: 2001, isActive: true)
+    musk.logStatus()
+    print("Contacting \(musk.name) on \(musk.email!) ...")
+    print("\(musk.name) has \(musk.followers) followers")
+    // sometime later
+    musk.isActive = false
+    musk.logStatus()
+    
+}
+
+// Functions with outputs
+
+func greetingName(name: String?) -> String {
+    return "Hello \(name)"
+}
+
+print(greetingName(name: "Bruce"))
+
+
+func isOdd(n: Int) -> Bool {
+    if n % 2 == 0 {
+        return false
+    }
+    return true
+}
